@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import "dotenv/config";
 
 import { connectDB } from "./db";
@@ -13,6 +14,7 @@ connectDB();
 
 // middlewares
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({

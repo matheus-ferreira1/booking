@@ -38,4 +38,8 @@ const loginUser = async (req: Request, res: Response) => {
   }
 };
 
-export { loginUser };
+const tokenCheck = (req: Request, res: Response) => {
+  res.status(200).send({ userId: req.userId, message: "Token is valid" });
+};
+
+export { loginUser, tokenCheck };
