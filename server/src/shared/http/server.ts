@@ -4,8 +4,8 @@ import "dotenv/config";
 
 import { connectDB } from "./db";
 
-import userRouter from "../../routes/users.routes";
 import { AppError } from "../errors/AppError";
+import { routes } from "./routes";
 
 const app = express();
 
@@ -33,7 +33,9 @@ app.use(
 );
 
 // routes
-app.use("/api/users", userRouter);
+// app.use("/api/users", userRouter);
+// app.use("/api/auth", authRouter);
+app.use("/api", routes);
 
 const PORT = process.env.PORT || 7000;
 

@@ -3,9 +3,9 @@ import { check } from "express-validator";
 
 import { registerUser } from "../controllers/users.controllers";
 
-const router = express.Router();
+const userRouter = express.Router();
 
-router.post(
+userRouter.post(
   "/register",
   [
     check("email", "A valid e-mail is required").isEmail(),
@@ -21,4 +21,4 @@ router.post(
   registerUser
 );
 
-export default router;
+export { userRouter };

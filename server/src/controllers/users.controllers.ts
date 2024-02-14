@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 
 import User from "../models/user";
+
 import generateTokenAndSetCookie from "../shared/utils/generateTokenAndSetCookies";
 
 const registerUser = async (req: Request, res: Response) => {
@@ -26,9 +27,7 @@ const registerUser = async (req: Request, res: Response) => {
     if (newUser) {
       generateTokenAndSetCookie(newUser._id, res);
 
-      return res
-        .status(201)
-        .json({ message: "User created successfully", data: newUser });
+      return res.status(201).json({ message: "User created successfully" });
     }
   } catch (err) {
     console.log(err);
