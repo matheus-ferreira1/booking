@@ -14,7 +14,12 @@ connectDB();
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use(
   (error: Error, request: Request, response: Response, next: NextFunction) => {
@@ -33,8 +38,6 @@ app.use(
 );
 
 // routes
-// app.use("/api/users", userRouter);
-// app.use("/api/auth", authRouter);
 app.use("/api", routes);
 
 const PORT = process.env.PORT || 7000;

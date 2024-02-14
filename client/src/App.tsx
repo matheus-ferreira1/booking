@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/header";
 import Hero from "./components/hero";
 import Footer from "./components/footer";
+import Register from "./pages/register";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route path="/" element={<>home page</>} />
           <Route path="/sign-in" element={<>sign in page</>} />
           <Route path="/search" element={<>search page</>} />
+          <Route path="/register" element={<Register />} />
+
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
