@@ -3,6 +3,7 @@ import Header from "./components/header";
 import Hero from "./components/hero";
 import Footer from "./components/footer";
 import Register from "./pages/register";
+import SignIn from "./pages/sign-in";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <div className="container mx-auto py-10 flex-1">
         <Routes>
           <Route path="/" element={<>home page</>} />
-          <Route path="/sign-in" element={<>sign in page</>} />
+          <Route path="/sign-in" element={<SignIn />} />
           <Route path="/search" element={<>search page</>} />
           <Route path="/register" element={<Register />} />
 

@@ -42,4 +42,11 @@ const tokenCheck = (req: Request, res: Response) => {
   res.status(200).send({ userId: req.userId, message: "Token is valid" });
 };
 
-export { loginUser, tokenCheck };
+const logout = (req: Request, res: Response) => {
+  res.cookie("auth_token", "", {
+    expires: new Date(0),
+  });
+  res.status(200).json({ message: "User logged out successfully" });
+};
+
+export { loginUser, tokenCheck, logout };

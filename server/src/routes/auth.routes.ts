@@ -1,7 +1,7 @@
 import express from "express";
 import { check } from "express-validator";
 
-import { loginUser, tokenCheck } from "../controllers/auth.controllers";
+import { loginUser, logout, tokenCheck } from "../controllers/auth.controllers";
 import verifyToken from "../middleware/auth";
 
 const authRouter = express.Router();
@@ -20,5 +20,7 @@ authRouter.post(
 );
 
 authRouter.get("/validate-token", verifyToken, tokenCheck);
+
+authRouter.post("/logout", logout);
 
 export { authRouter };
